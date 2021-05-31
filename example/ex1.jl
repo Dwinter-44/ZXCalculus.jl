@@ -37,3 +37,25 @@ ex_zxd = clifford_simplification(zxd)
 
 plot(zxd)
 plot(ex_zxd)
+
+macro Name(arg)
+   string(arg)
+end
+
+plot_name = @Name ex1
+
+function save_plot(name, N, step, plot, label)
+    cd(dirname(@__FILE__));
+    dir = pwd();
+    println("Saving plots to the directory in $dir","\\Graphs")
+    strlabel = string(label);
+    mkpath(string(dir,"\\Graphs\\","\\",name,))
+    pngfilename = string(dir,"\\Graphs\\","\\",name,"\\","\\",name,strlabel,".png")
+    #pdffilename = string(dir,"\\Graphs\\","\\",name,"_",q, " qubits\\","\\",step," steps\\",strlabel,".pdf")
+    #epsfilename = string(dir,"\\Graphs\\","\\",name,"_",q, " qubits\\","\\",step," steps\\",strlabel,".eps")
+    savefig(plot, pngfilename)
+    #savefig(plot, pdffilename)
+    #savefig(plot, epsfilename)
+end
+
+save_plot(plot_name, zxd) # Saves the plots to github
