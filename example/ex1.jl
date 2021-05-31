@@ -1,5 +1,6 @@
 using ZXCalculus
 using YaoPlots
+using Plots
 
 function generate_example()
     zxd = ZXDiagram(4)
@@ -42,9 +43,9 @@ macro Name(arg)
    string(arg)
 end
 
-plot_name = @Name ex1
+name = @Name ex1
 
-function save_plot(name, N, step, plot, label)
+function save_plot(name, plot, label)
     cd(dirname(@__FILE__));
     dir = pwd();
     println("Saving plots to the directory in $dir","\\Graphs")
@@ -58,4 +59,16 @@ function save_plot(name, N, step, plot, label)
     #savefig(plot, epsfilename)
 end
 
-save_plot(plot_name, zxd) # Saves the plots to github
+title = "" *string(plot_name)* ""
+Plots.title!(title)
+lables=title
+
+save_plot(plot_name, zxd, label) # Saves the plots to github
+
+dir = pwd();
+println("Saving plots to the directory in $dir","\\Graphs")
+mkpath(string(dir,"\\Graphs\\","\\",name,))
+pngfilename = string(dir,"\\Graphs\\","\\",name,"\\","\\",name,".png")
+#pdffilename = string(dir,"\\Graphs\\","\\",name,"_",q, " qubits\\","\\",step," steps\\",strlabel,".pdf")
+#epsfilename = string(dir,"\\Graphs\\","\\",name,"_",q, " qubits\\","\\",step," steps\\",strlabel,".eps")
+savefig(zxd, pngfilename)
