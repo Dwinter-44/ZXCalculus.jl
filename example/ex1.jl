@@ -45,30 +45,30 @@ end
 
 name = @Name ex1
 
-function save_plot(name, plot, label)
-    cd(dirname(@__FILE__));
-    dir = pwd();
-    println("Saving plots to the directory in $dir","\\Graphs")
-    strlabel = string(label);
-    mkpath(string(dir,"\\Graphs\\","\\",name,))
-    pngfilename = string(dir,"\\Graphs\\","\\",name,"\\","\\",name,strlabel,".png")
+#function save_plot(name, plot, label)
+    #cd(dirname(@__FILE__));
+    #dir = pwd();
+    #println("Saving plots to the directory in $dir","\\Graphs")
+    #strlabel = string(label);
+    #mkpath(string(dir,"\\Graphs\\","\\",name,))
+#    pngfilename = string(dir,"\\Graphs\\","\\",name,"\\","\\",name,strlabel,".png")
     #pdffilename = string(dir,"\\Graphs\\","\\",name,"_",q, " qubits\\","\\",step," steps\\",strlabel,".pdf")
     #epsfilename = string(dir,"\\Graphs\\","\\",name,"_",q, " qubits\\","\\",step," steps\\",strlabel,".eps")
-    savefig(plot, pngfilename)
+    #savefig(plot, pngfilename)
     #savefig(plot, pdffilename)
     #savefig(plot, epsfilename)
-end
+#end
 
-title = "" *string(plot_name)* ""
-Plots.title!(title)
-lables=title
+#title = "" *string(plot_name)* ""
+#Plots.title!(title)
+#lables=title
 
-save_plot(plot_name, zxd, label) # Saves the plots to github
+#save_plot(plot_name, zxd, label) # Saves the plots to github
 
-dir = pwd();
-println("Saving plots to the directory in $dir","\\Graphs")
-mkpath(string(dir,"\\Graphs\\","\\",name,))
-pngfilename = string(dir,"\\Graphs\\","\\",name,"\\","\\",name,".png")
+#dir = pwd();
+#println("Saving plots to the directory in $dir","\\Graphs")
+#mkpath(string(dir,"\\Graphs\\","\\",name,))
+#pngfilename = string(dir,"\\Graphs\\","\\",name,"\\","\\",name,".png")
 #pdffilename = string(dir,"\\Graphs\\","\\",name,"_",q, " qubits\\","\\",step," steps\\",strlabel,".pdf")
 #epsfilename = string(dir,"\\Graphs\\","\\",name,"_",q, " qubits\\","\\",step," steps\\",strlabel,".eps")
-savefig(zxd, pngfilename)
+#savefig(zxd, pngfilename)
